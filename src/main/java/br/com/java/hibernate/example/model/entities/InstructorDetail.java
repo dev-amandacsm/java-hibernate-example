@@ -16,6 +16,10 @@ public class InstructorDetail {
     @Column(length = 45)
     private String hobby;
 
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    /* mapped by the relationship owner */
+    private Instructor instructor;
+
     public InstructorDetail(){
 
     }
@@ -43,6 +47,14 @@ public class InstructorDetail {
 
     public void setHobby(String hobby){
         this.hobby = hobby;
+    }
+
+    public Instructor getInstructor(){
+        return instructor;
+    }
+
+    public void setInstructor(Instructor instructor){
+        this.instructor = instructor;
     }
 
     @Override
